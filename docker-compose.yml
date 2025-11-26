@@ -1,0 +1,10 @@
+services:
+  web:
+    build: .
+    container_name: php83-debug
+    ports:
+      - "8080:80"              # Besök http://localhost:8080
+    volumes:
+      - ./src:/var/www/html    # /src = dokumentroten i containern
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
