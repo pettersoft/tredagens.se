@@ -29,3 +29,16 @@ $meta_url = $meta_url
     <link rel="stylesheet" href="/static/css/main.css">
 </head>
 <body>
+
+<header>
+    <h1>tredagens.se</h1>
+
+    <nav>
+        <ul>
+            <li><a href="/">Start</a></li>
+            <li><a href="boka.php">Boka</a></li>
+            <li><a href="om-oss.php">Om oss</a></li>
+            <li><a href="musik.php">Vår musik</a></li>
+        </ul>
+    </nav>
+</header>
