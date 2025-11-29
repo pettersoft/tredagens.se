@@ -1,7 +1,7 @@
 <?php
 $page_title = $page_title ?? "tredagens.se - Enångers största coverband";
 $meta_description = $meta_description ?? "Tre Dagens bjuder på covers som får hela golvet att svänga.";
-$meta_image = $meta_image ?? "/static/img/social-share.png";
+// $meta_image = $meta_image ?? "/static/img/social-share.png";
 $meta_url = $meta_url
     ?? ((isset($_SERVER["REQUEST_SCHEME"]) ? $_SERVER["REQUEST_SCHEME"] : "https") .
         "://" .
@@ -23,7 +23,7 @@ $meta_url = $meta_url
     <meta property="og:title" content="<?=htmlspecialchars($page_title)?>">
     <meta property="og:description" content="<?=htmlspecialchars($meta_description)?>">
     <meta property="og:url" content="<?=htmlspecialchars($meta_url)?>">
-    <meta property="og:image" content="<?=htmlspecialchars($meta_image)?>">
+    <!-- <meta property="og:image" content="<?=htmlspecialchars($meta_image)?>"> -->
 
     <link rel="stylesheet" href="https://meyerweb.com/eric/tools/css/reset/reset.css">
     <link rel="stylesheet" href="/static/css/main.css">
@@ -31,8 +31,8 @@ $meta_url = $meta_url
 <body>
 
 <header>
-    <h1>tredagens.se</h1>
-
+    <img src="/static/img/logo_white.png">
+<!-- 
     <nav>
         <ul>
             <li><a href="/">Start</a></li>
@@ -40,5 +40,5 @@ $meta_url = $meta_url
             <li><a href="om-oss.php">Om oss</a></li>
             <li><a href="musik.php">Vår musik</a></li>
         </ul>
-    </nav>
+    </nav> -->
 </header>
