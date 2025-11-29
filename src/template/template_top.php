@@ -25,14 +25,19 @@ $meta_url = $meta_url
     <meta property="og:url" content="<?=htmlspecialchars($meta_url)?>">
     <!-- <meta property="og:image" content="<?=htmlspecialchars($meta_image)?>"> -->
 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+
     <link rel="stylesheet" href="https://meyerweb.com/eric/tools/css/reset/reset.css">
     <link rel="stylesheet" href="/static/css/main.css">
 </head>
 <body>
 
 <header>
-    <img src="/static/img/logo_white.png">
-<!-- 
+    <div class="header-wrapper">
+    <img src="/static/img/logo_white.png" alt="Tre Dagens logga">
     <nav>
         <ul>
             <li><a href="/">Start</a></li>
@@ -40,5 +45,6 @@ $meta_url = $meta_url
             <li><a href="om-oss.php">Om oss</a></li>
             <li><a href="musik.php">Vår musik</a></li>
         </ul>
-    </nav> -->
+    </nav>
+</div>
 </header>
