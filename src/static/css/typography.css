@@ -25,3 +25,10 @@ h3 {
     line-height: 1.4;
 }
 
+a {
+    color: #d74646;
+    font-family: 'roboto', sans-serif;
+    font-weight: bold;
+    text-decoration: underline;
+    text-decoration: none;
+}
