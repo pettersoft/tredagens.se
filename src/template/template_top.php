@@ -36,6 +36,8 @@ $meta_url = $meta_url
     <!-- Vår css --> 
     <link rel="stylesheet" href="/static/css/main.css">
     <link rel="stylesheet" href="/static/css/typography.css">
+
+    <link rel="icon" type="image/png" href="/static/img/favicon.ico">
 </head>
 <body>
 
