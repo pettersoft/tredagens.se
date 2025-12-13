@@ -69,7 +69,7 @@ header nav li a:focus-visible {
 }
 
 .page {
-    height: 100vh;
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -145,7 +145,6 @@ header nav li a:focus-visible {
 @media (max-width: 900px) {
     body {
         justify-content: flex-start;
-        padding-top: 1rem;
     }
 
     header {
@@ -159,6 +158,21 @@ header nav li a:focus-visible {
     header nav li a {
         font-size: 1rem;
         padding: 0.7rem 1.1rem;
+    }
+
+    .band-members {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .band-member {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .band-member:last-of-type {
+        flex-direction: column-reverse;
     }
 }
 
