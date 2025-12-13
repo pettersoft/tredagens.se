@@ -50,7 +50,7 @@ require_once __DIR__ . '/template/template_top.php';
     </div>
 </section>
 
-<section class="page bg1" style="padding-top: 5rem">
+<section class="page bg3" style="padding-top: 5rem">
     <div class="content">
         <h2>Kontakta oss</h2>
         <p>För bokningar och förfrågningar, vänligen kontakta oss via e-post på <a
