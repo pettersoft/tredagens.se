@@ -81,14 +81,38 @@ header nav li a:focus-visible {
     justify-content: center;
 }
 
-.bg1 {
-    background-image: url('/static/img/bg2.JPG');
+.bg1,
+.bg3 {
     background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-image: url('/static/img/bg2.JPG');
 }
 
 .bg3 {
     background-image: url('/static/img/bg3.JPG');
-    background-size: cover;
+}
+
+/* Tablets portrait */
+@media (max-width: 1024px) and (orientation: portrait) {
+    .bg1 {
+        background-image: url('/static/img/bg2-3x4.JPG');
+    }
+
+    .bg3 {
+        background-image: url('/static/img/bg3-3x4.JPG');
+    }
+}
+
+/* Phones portrait */
+@media (max-width: 768px) and (orientation: portrait) {
+    .bg1 {
+        background-image: url('/static/img/bg2-9x16.JPG');
+    }
+
+    .bg3 {
+        background-image: url('/static/img/bg3-16x9.JPG');
+    }
 }
 
 .content {
