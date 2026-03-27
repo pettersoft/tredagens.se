@@ -68,6 +68,13 @@ header nav li a:focus-visible {
     background: rgba(0, 0, 0, 0.5);
 }
 
+header nav li a.active {
+    color: #ffd;
+    border-color: rgba(255, 255, 200, 0.7);
+    background: rgba(0, 0, 0, 0.55);
+    font-weight: 600;
+}
+
 .page {
     min-height: 100vh;
     display: flex;
@@ -77,8 +84,8 @@ header nav li a:focus-visible {
 }
 
 .page .content h2 {
-    display: flex;
-    justify-content: center;
+    /* display: flex;
+    justify-content: center; */
 }
 
 .bg1,

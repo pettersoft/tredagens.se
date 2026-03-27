@@ -40,4 +40,7 @@ $meta_url = $meta_url
     <link rel="icon" type="image/png" href="/static/img/favicon.ico">
 </head>
 <body>
+<button class="nav-toggle" id="nav-toggle" aria-label="Öppna meny" aria-expanded="false">
+    <span></span><span></span><span></span>
+</button>
 
