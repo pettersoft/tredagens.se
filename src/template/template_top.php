@@ -1,6 +1,6 @@
 <?php
-$page_title = $page_title ?? "tredagens.se - Enångers största coverband";
-$meta_description = $meta_description ?? "Tre Dagens bjuder på covers som får hela golvet att svänga.";
+$page_title = $page_title ?? "Tre dagens - trubadur i Hudiksvall";
+$meta_description = $meta_description ?? "Tre Dagens är ett coverband / trubadur i Hudiksvall som spelar på fester, krogar och evenemang";
 // $meta_image = $meta_image ?? "/static/img/social-share.png";
 $meta_url = $meta_url
     ?? ((isset($_SERVER["REQUEST_SCHEME"]) ? $_SERVER["REQUEST_SCHEME"] : "https") .
@@ -41,13 +41,3 @@ $meta_url = $meta_url
 </head>
 <body>
 
-<!-- <header>
-    <nav>
-        <ul>
-            <li><a href="/">Start</a></li>
-            <li><a href="boka.php">Boka</a></li>
-            <li><a href="om-oss.php">Om oss</a></li>
-            <li><a href="musik.php">Vår musik</a></li>
-        </ul>
-    </nav>
-</header> -->

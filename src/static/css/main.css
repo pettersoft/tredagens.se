@@ -28,9 +28,9 @@ header .header-wrapper {
     width: min(1100px, calc(100% - 2rem));
 }
 
-header nav {
-    width: 100%;
-    position: absolute;
+/* Hamburger button — hidden on desktop */
+.nav-toggle {
+    display: none;
 }
 
 header nav ul {
@@ -56,7 +56,7 @@ header nav li a {
     border: 1px solid rgba(255, 255, 255, 0.35);
     border-radius: 999px;
     background: rgba(0, 0, 0, 0.35);
-    min-width: clamp(120px, 24vw, 220px);
+    min-width: clamp(120px, 18vw, 180px);
     text-align: center;
     transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
 }
@@ -180,15 +180,6 @@ header nav li a:focus-visible {
         padding-top: 1rem;
     }
 
-    header nav ul {
-        gap: 0.65rem;
-    }
-
-    header nav li a {
-        font-size: 1rem;
-        padding: 0.7rem 1.1rem;
-    }
-
     .band-members {
         flex-direction: column;
         align-items: center;
@@ -202,6 +193,73 @@ header nav li a:focus-visible {
 
     .band-member:last-of-type {
         flex-direction: column-reverse;
+    }
+}
+
+/* Mobile nav — hamburger */
+@media (max-width: 640px) {
+    .nav-toggle {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        position: fixed;
+        top: 1rem;
+        right: 1rem;
+        z-index: 200;
+        width: 2rem;
+        height: 1.375rem;
+        background: transparent;
+        border: none;
+        cursor: pointer;
+        padding: 0;
+    }
+
+    .nav-toggle span {
+        display: block;
+        width: 100%;
+        height: 2px;
+        background: #fff;
+        border-radius: 2px;
+        transition: transform 0.25s ease, opacity 0.25s ease;
+    }
+
+    .nav-toggle.open span:nth-child(1) {
+        transform: translateY(10px) rotate(45deg);
+    }
+
+    .nav-toggle.open span:nth-child(2) {
+        opacity: 0;
+    }
+
+    .nav-toggle.open span:nth-child(3) {
+        transform: translateY(-10px) rotate(-45deg);
+    }
+
+    header nav ul {
+        display: none;
+        flex-direction: column;
+        align-items: stretch;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 190;
+        background: rgba(0, 0, 0, 0.92);
+        backdrop-filter: blur(6px);
+        padding: 4rem 1.5rem 1.5rem;
+        gap: 0.5rem;
+    }
+
+    header nav.open ul {
+        display: flex;
+    }
+
+    header nav li a {
+        min-width: unset;
+        width: 100%;
+        border-radius: 8px;
+        font-size: 1.1rem;
+        padding: 0.9rem 1rem;
     }
 }
 

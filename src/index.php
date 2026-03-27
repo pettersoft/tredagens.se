@@ -3,18 +3,29 @@ require_once __DIR__ . '/template/template_top.php';
 ?>
 <section class="page bg1">
     <header>
+        <button class="nav-toggle" id="nav-toggle" aria-label="Öppna meny" aria-expanded="false">
+            <span></span><span></span><span></span>
+        </button>
         <div class="header-wrapper">
             <img src="/static/img/logo_white.png" alt="Tre Dagens logga">
+            <nav id="main-nav">
+                <ul>
+                    <li><a href="/">Start</a></li>
+                    <li><a href="/boka.php">Boka</a></li>
+                    <li><a href="/om-oss.php">Om oss</a></li>
+                    <li><a href="/musik.php">Vår musik</a></li>
+                </ul>
+            </nav>
         </div>
     </header>
 
 
     <div class="content">
         <h1>Tre dagens</h1>
-        <p>Välkommen till Tre Dagens officiella hemsida! Vi är Enångers största (till ytan) band och vi älskar att få
+        <p>Välkommen till Tre Dagens officiella hemsida! Vi är ett två trubadurer / ett coverband i Hudiksvall. Vi älskar att få
             folk att dansa och ha kul. Oavsett om det är en 50-årsfest, kräftskiva eller något annat värt att fira, så
             levererar vi alltid en energifylld show med låtar som alla känner igen.</p>
-        <p>"Spela Creedence annars slår jag ihjäl dig!" - Vi lever än, vi levererar alltid Creedence.</p>
+        <p><blockquote>"Spela Creedence annars slår jag ihjäl dig!"</blockquote> - Vi lever än, vi levererar alltid Creedence.</p>
         <p><em>PS. Vi erbjuder även Quiz! Kontakta oss för mer information och bokning.</em></p>
     </div>
 </section>
