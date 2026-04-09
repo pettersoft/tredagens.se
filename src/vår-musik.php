@@ -1,7 +1,8 @@
 <?php
 $current_page = 'musik';
-$page_title = 'Vår musik – Tre Dagens';
-$meta_description = 'Lyssna på Tre Dagens musik – covers och egna låtar från bandet i Hudiksvall.';
+$page_title = 'Vår musik | Covers & egna låtar | Tre Dagens';
+$meta_description = 'Lyssna på Tre Dagens musik med covers, setlist och egna låtar från vårt coverband och vår trubadurduo i Hudiksvall.';
+$meta_url = 'https://tredagens.se/vår-musik.php';
 require_once __DIR__ . '/template/template_top.php';
 ?>
 <section class="page bg1">

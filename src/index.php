@@ -1,5 +1,8 @@
 <?php
 $current_page = 'start';
+$page_title = 'Tre Dagens | Trubadur & coverband i Hudiksvall';
+$meta_description = 'Tre Dagens är en trubadurduo och ett coverband i Hudiksvall för fest, krog, quiz och evenemang med välkända låtar och hög energi.';
+$meta_url = 'https://tredagens.se/';
 require_once __DIR__ . '/template/template_top.php';
 ?>
 <section class="page bg1">

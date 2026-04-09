@@ -1,7 +1,8 @@
 <?php
 $current_page = 'boka';
-$page_title = 'Boka Tre Dagens';
-$meta_description = 'Boka Tre Dagens för din fest, kräftskiva eller evenemang i Hudiksvall och Enånger. Kontakta oss för pris och lediga datum.';
+$page_title = 'Boka Tre Dagens | Trubadur & coverband i Hudiksvall';
+$meta_description = 'Boka Tre Dagens till fest, kräftskiva, krog eller företagsevent i Hudiksvall och Enånger. Kontakta oss för pris och lediga datum.';
+$meta_url = 'https://tredagens.se/boka.php';
 require_once __DIR__ . '/template/template_top.php';
 ?>
 <section class="page bg3">

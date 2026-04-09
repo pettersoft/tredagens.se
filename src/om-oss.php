@@ -1,7 +1,8 @@
 <?php
 $current_page = 'om-oss';
-$page_title = 'Om oss – Tre Dagens';
-$meta_description = 'Lär känna Tre Dagens – Petter och Ivar, ett coverband och trubadurpar från Hudiksvall.';
+$page_title = 'Om Tre Dagens | Trubadurer från Hudiksvall';
+$meta_description = 'Lär känna Tre Dagens, Petter och Ivar, en trubadurduo och ett coverband från Hudiksvall med rötter i Enånger.';
+$meta_url = 'https://tredagens.se/om-oss.php';
 require_once __DIR__ . '/template/template_top.php';
 ?>
 <section class="page bg1">

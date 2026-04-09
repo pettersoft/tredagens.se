@@ -83,11 +83,6 @@ header nav li a.active {
     gap: 4rem;
 }
 
-.page .content h2 {
-    /* display: flex;
-    justify-content: center; */
-}
-
 .bg1,
 .bg3 {
     background-size: cover;
@@ -263,7 +258,7 @@ header nav li a.active {
 
     header nav li a {
         min-width: unset;
-        width: 100%;
+        display: flex;
         border-radius: 8px;
         font-size: 1.1rem;
         padding: 0.9rem 1rem;
