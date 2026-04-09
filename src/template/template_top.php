@@ -11,6 +11,7 @@ $request_path = parse_url($request_uri, PHP_URL_PATH) ?: "/";
 $site_url = $scheme . "://" . $host;
 $meta_url = $meta_url ?? ($site_url . $request_path);
 $meta_image = $meta_image ?? ($site_url . "/static/img/bg3-16x9.JPG");
+$site_logo = $site_logo ?? ($site_url . "/static/img/logo_256x256.png");
 
 $schema = $schema ?? [
     "@context" => "https://schema.org",
@@ -19,6 +20,7 @@ $schema = $schema ?? [
     "url" => $site_url,
     "description" => $meta_description,
     "image" => $meta_image,
+    "logo" => $site_logo,
     "genre" => ["Coverband", "Trubadur", "Gypsy jazz"],
     "email" => "pettersoft@gmail.com",
     "telephone" => "+46725240777",
@@ -68,7 +70,12 @@ $schema = $schema ?? [
     <link rel="stylesheet" href="/static/css/main.css">
     <link rel="stylesheet" href="/static/css/typography.css">
 
-    <link rel="icon" type="image/png" href="/static/img/favicon.ico">
+    <link rel="icon" href="/static/img/favicon.ico" sizes="any">
+    <link rel="icon" type="image/png" sizes="48x48" href="/static/img/logo_48x48.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="/static/img/logo_96x96.png">
+    <link rel="icon" type="image/png" sizes="128x128" href="/static/img/logo_128x128.png">
+    <link rel="icon" type="image/png" sizes="256x256" href="/static/img/logo_256x256.png">
+    <link rel="apple-touch-icon" href="/static/img/logo_256x256.png">
 </head>
 <body>
 <button class="nav-toggle" id="nav-toggle" aria-label="Öppna meny" aria-expanded="false">
