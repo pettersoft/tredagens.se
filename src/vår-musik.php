@@ -20,7 +20,7 @@ require_once __DIR__ . '/template/template_top.php';
 
         <h2>Men "er" musik då?</h2>
         <p>Givetvis! Vi skriver också egen musik. Några av våra främst alster faller inom genren gypsy jazz, detta är vår gode vän, Lars Gillman Jonsson, favoritlåt!</p>
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/3a2IwAtyhCQ?si=b3TMmLC-QkdZh5Gz" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        <iframe width="300" height="315" src="https://www.youtube.com/embed/3a2IwAtyhCQ?si=b3TMmLC-QkdZh5Gz" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
     </div>
 </section>
 
