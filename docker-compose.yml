@@ -1,10 +1,14 @@
+# Local development: http://localhost:8090 (xdebug on port 9003).
+#   docker compose up --build
 services:
   web:
-    build: .
-    container_name: php83-debug
+    build:
+      context: .
+      target: dev
+    container_name: tredagens-dev
     ports:
-      - "8080:80"              # Besök http://localhost:8080
+      - "8090:8080"
     volumes:
-      - ./src:/var/www/html    # /src = dokumentroten i containern
+      - ./src:/var/www/html
     extra_hosts:
       - "host.docker.internal:host-gateway"

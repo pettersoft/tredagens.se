@@ -3,12 +3,16 @@ $page_title = $page_title ?? "Tre Dagens | Trubadur & coverband i Hudiksvall";
 $meta_description = $meta_description ?? "Tre Dagens är en trubadurduo och ett coverband i Hudiksvall som spelar på fester, krogar och evenemang.";
 $meta_robots = $meta_robots ?? "index,follow,max-image-preview:large";
 
-$scheme = isset($_SERVER["REQUEST_SCHEME"]) ? $_SERVER["REQUEST_SCHEME"] : "https";
-$host = $_SERVER["HTTP_HOST"] ?? "tredagens.se";
 $request_uri = $_SERVER["REQUEST_URI"] ?? "/";
 $request_path = parse_url($request_uri, PHP_URL_PATH) ?: "/";
 
-$site_url = $scheme . "://" . $host;
+// Production sets SITE_URL so absolute URLs never depend on the Host header
+// or on the scheme seen behind the reverse proxy.
+$site_url = rtrim(getenv("SITE_URL") ?: "", "/");
+if ($site_url === "") {
+    $scheme = (($_SERVER["HTTPS"] ?? "") === "on") ? "https" : ($_SERVER["REQUEST_SCHEME"] ?? "http");
+    $site_url = $scheme . "://" . ($_SERVER["HTTP_HOST"] ?? "tredagens.se");
+}
 $meta_url = $meta_url ?? ($site_url . $request_path);
 $meta_image = $meta_image ?? ($site_url . "/static/img/bg3-16x9.JPG");
 $site_logo = $site_logo ?? ($site_url . "/static/img/logo_256x256.png");
