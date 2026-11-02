@@ -30,8 +30,12 @@ FROM base AS prod
 RUN cp "$PHP_INI_DIR/php.ini-production" "$PHP_INI_DIR/php.ini"
 COPY docker/php/prod.ini /usr/local/etc/php/conf.d/zz-prod.ini
 
-# Owned by root: www-data can read but not modify the site.
-COPY --chown=root:root --chmod=a=rX src/ /var/www/html/
+# Owned by root: www-data can read but not modify the site. Permissions are
+# set explicitly so they don't depend on the builder or the checkout's umask.
+COPY --chown=root:root src/ /var/www/html/
+RUN chown root:root /var/www/html \
+    && find /var/www/html -type d -exec chmod 755 {} + \
+    && find /var/www/html -type f -exec chmod 644 {} +
 
 USER www-data
 
