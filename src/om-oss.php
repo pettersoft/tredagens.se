@@ -20,6 +20,9 @@ require_once __DIR__ . '/template/template_top.php';
 
         <h2>Trubadurer i Hudiksvall</h2>
         <p>Vi är det självklara valet för en trubadurafton i Hudiksvall med omnejd</p>
+
+        <h2>Trubadur i Gävle &amp; Sundsvall</h2>
+        <p>Vi begränsar oss inte till bara vårt hem. Vi reser gärna runt och spelar och gör ert event oförglömligt.</p>
     </div>
 </section>
 
@@ -42,7 +45,7 @@ require_once __DIR__ . '/template/template_top.php';
                 <h3>Ivar Engnell</h3>
                 <h4>Sång, gitarr och stomp</h4>
                 <p>Det är inte bara musik, det är en livsstil. Ivar, spelman i grunden, är förutom en riktigt bra
-                    vokalist, även riktigt vass på dragspel och folkmusik.</p>
+                    vokalist, även riktigt vass på dragspel och folkmusik. Ivar spelar även i AC/DC-coverbandet Ace/Dc.</p>
             </div>
             <div class="band-member-img">
                 <img src="/static/img/ivar.png" alt="Bild på Ivar Engnell" loading="lazy">

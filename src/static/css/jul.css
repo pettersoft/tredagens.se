@@ -1,0 +1,140 @@
+/* Jultema. Laddas sist i template_top.php - ta bort <link>-raden efter jul. */
+
+:root {
+    --jul-rod: #b3202a;
+    --jul-gron: #1f5f3a;
+    --jul-guld: #e8c46a;
+    --jul-sno: #fffaf0;
+}
+
+/* ---------- Julbakgrunder ---------- */
+/* Mappade efter faktiska proportioner: bg2-9x16-jul är 3:4 och bg2-3x4-jul är 9:16. */
+.bg1 {
+    background-image: url('/static/img/bg2-jul.jpg');
+}
+
+.bg3 {
+    background-image: url('/static/img/bg3-jul-16x9.jpg');
+}
+
+/* Surfplatta stående */
+@media (max-width: 1024px) and (orientation: portrait) {
+    .bg1 {
+        background-image: url('/static/img/bg2-9x16-jul.jpg');
+    }
+
+    .bg3 {
+        background-image: url('/static/img/bg3-jul-3x4.jpg');
+    }
+}
+
+/* Mobil stående */
+@media (max-width: 768px) and (orientation: portrait) {
+    .bg1 {
+        background-image: url('/static/img/bg2-3x4-jul.jpg');
+    }
+
+    .bg3 {
+        background-image: url('/static/img/bg3-jul-9x16.jpg');
+    }
+}
+
+/* ---------- Navigering ---------- */
+header nav li a {
+    border-color: rgba(232, 196, 106, 0.55);
+}
+
+header nav li a:hover,
+header nav li a:focus-visible,
+header nav li a.active {
+    color: var(--jul-guld);
+    border-color: var(--jul-guld);
+    background: rgba(179, 32, 42, 0.6);
+}
+
+/* ---------- Innehållsruta: rödgrön rand upptill + guldglöd ---------- */
+.content {
+    background-image: repeating-linear-gradient(
+        90deg,
+        var(--jul-rod) 0 24px,
+        var(--jul-sno) 24px 30px,
+        var(--jul-gron) 30px 54px,
+        var(--jul-sno) 54px 60px
+    );
+    background-size: 100% 6px;
+    background-repeat: no-repeat;
+    padding-top: calc(2rem + 6px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35), 0 0 28px rgba(232, 196, 106, 0.25);
+}
+
+.content h1::after {
+    content: " 🎄";
+}
+
+.content a {
+    color: var(--jul-guld);
+}
+
+/* ---------- Hamburgermeny: polkagris ---------- */
+@media (max-width: 640px) {
+    .nav-toggle span {
+        background: repeating-linear-gradient(
+            135deg,
+            #ffffff 0 5px,
+            var(--jul-rod) 5px 9px
+        );
+    }
+
+    header nav li a.active {
+        background: rgba(179, 32, 42, 0.6);
+    }
+}
+
+/* ---------- Snöfall (bara CSS) ---------- */
+body::before,
+body::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 150; /* under mobilmenyn (190-200) */
+}
+
+/* Bakre lager: små, långsamma flingor */
+body::before {
+    background-image:
+        radial-gradient(circle at 20px 30px, rgba(255, 250, 240, 0.8) 1.5px, transparent 2.5px),
+        radial-gradient(circle at 110px 90px, rgba(255, 250, 240, 0.7) 1.5px, transparent 2.5px),
+        radial-gradient(circle at 170px 160px, rgba(255, 250, 240, 0.8) 1px, transparent 2px),
+        radial-gradient(circle at 60px 180px, rgba(255, 250, 240, 0.6) 1.5px, transparent 2.5px);
+    background-size: 200px 200px;
+    animation: jul-sno 18s linear infinite;
+    opacity: 0.7;
+}
+
+/* Främre lager: större, snabbare flingor */
+body::after {
+    background-image:
+        radial-gradient(circle at 40px 60px, rgba(255, 250, 240, 0.9) 2.5px, transparent 3.5px),
+        radial-gradient(circle at 230px 140px, rgba(255, 250, 240, 0.85) 2px, transparent 3px),
+        radial-gradient(circle at 150px 260px, rgba(255, 250, 240, 0.9) 3px, transparent 4px);
+    background-size: 300px 300px;
+    animation: jul-sno-stor 12s linear infinite;
+}
+
+@keyframes jul-sno {
+    from { background-position: 0 0; }
+    to   { background-position: 40px 200px; }
+}
+
+@keyframes jul-sno-stor {
+    from { background-position: 0 0; }
+    to   { background-position: -60px 300px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    body::before,
+    body::after {
+        animation: none;
+    }
+}

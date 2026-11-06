@@ -19,6 +19,7 @@ require_once __DIR__ . '/template/template_top.php';
             folk att dansa och ha kul. Oavsett om det är en 50-årsfest, kräftskiva eller något annat värt att fira, så
             levererar vi alltid en energifylld show med låtar som alla känner igen.</p>
         <p><blockquote>"Spela Creedence annars slår jag ihjäl dig!"</blockquote> - Vi lever än, vi levererar alltid Creedence.</p>
+        <p><em>PS. Vi fixar julfesten!</em></p>
         <p><em>PS. Vi erbjuder även Quiz! Kontakta oss för mer information och bokning.</em></p>
     </div>
 </section>

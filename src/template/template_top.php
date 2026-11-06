@@ -73,6 +73,8 @@ $schema = $schema ?? [
     <!-- Vår css --> 
     <link rel="stylesheet" href="/static/css/main.css">
     <link rel="stylesheet" href="/static/css/typography.css">
+    <!-- Jultema: ta bort raden efter jul -->
+    <link rel="stylesheet" href="/static/css/jul.css">
 
     <link rel="icon" href="/static/img/favicon.ico" sizes="any">
     <link rel="icon" type="image/png" sizes="48x48" href="/static/img/logo_48x48.png">
