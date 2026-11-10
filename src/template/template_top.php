@@ -6,6 +6,9 @@ $meta_robots = $meta_robots ?? "index,follow,max-image-preview:large";
 $request_uri = $_SERVER["REQUEST_URI"] ?? "/";
 $request_path = parse_url($request_uri, PHP_URL_PATH) ?: "/";
 
+require_once __DIR__ . "/../lib/stats.php";
+stats_track(rawurldecode($request_path));
+
 // Production sets SITE_URL so absolute URLs never depend on the Host header
 // or on the scheme seen behind the reverse proxy.
 $site_url = rtrim(getenv("SITE_URL") ?: "", "/");
@@ -71,7 +74,8 @@ $schema = $schema ?? [
     <link rel="stylesheet" href="https://meyerweb.com/eric/tools/css/reset/reset.css">
     
     <!-- Vår css --> 
-    <link rel="stylesheet" href="/static/css/main.css">
+    <!-- Bump ?v= when main.css changes; /static is cached for 30 days. -->
+    <link rel="stylesheet" href="/static/css/main.css?v=2">
     <link rel="stylesheet" href="/static/css/typography.css">
     <!-- Jultema: ta bort raden efter jul -->
     <link rel="stylesheet" href="/static/css/jul.css">

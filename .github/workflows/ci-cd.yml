@@ -28,13 +28,28 @@ jobs:
           set -e
           docker run -d --name smoke --read-only \
             --tmpfs /tmp --tmpfs /var/run/apache2 --tmpfs /var/lock/apache2 \
-            --cap-drop ALL -e SITE_URL=https://tredagens.se -p 8080:8080 tredagens-web:ci
+            --tmpfs /var/www/data:uid=33,gid=33 \
+            --cap-drop ALL -e SITE_URL=https://tredagens.se -e CONTACT_SECRET=ci-smoke-test-secret-0123456789abcdef \
+            -p 8080:8080 tredagens-web:ci
           for i in $(seq 1 20); do curl -fs http://localhost:8080/ >/dev/null && break; sleep 1; done
           for p in / /boka.php /om-oss.php /v%C3%A5r-musik.php /sitemap.xml /static/css/main.css; do
             code=$(curl -s -o /dev/null -w '%{http_code}' "http://localhost:8080$p")
             echo "$p -> $code"; [ "$code" = 200 ]
           done
           [ "$(curl -s -o /dev/null -w '%{http_code}' http://localhost:8080/template/nav.php)" = 403 ]
+          [ "$(curl -s -o /dev/null -w '%{http_code}' http://localhost:8080/lib/stats.php)" = 403 ]
+          curl -s http://localhost:8080/admin/ | grep -q 'name="password"'
+          # A browser visit is recorded in the stats database.
+          curl -s -o /dev/null -A 'Mozilla/5.0 (smoke test)' http://localhost:8080/boka.php
+          docker exec smoke php -r '$q=(new PDO("sqlite:/var/www/data/stats.db"))->prepare("SELECT COUNT(*) FROM pageviews WHERE path = ?"); $q->execute(["/boka.php"]); exit((int)$q->fetchColumn() === 1 ? 0 : 1);'
+          # Contact form: renders, issues challenges, rejects a post without a solved captcha.
+          [ "$(curl -s -o /dev/null -w '%{http_code}' http://localhost:8080/admin/_layout.php)" = 403 ]
+          curl -s http://localhost:8080/boka.php | grep -q '<altcha-widget'
+          curl -s http://localhost:8080/altcha-challenge.php | grep -q '"keySignature"'
+          token=$(curl -s http://localhost:8080/boka.php | grep -o 'name="token" value="[^"]*"' | cut -d'"' -f4)
+          sleep 4
+          curl -s -d "token=$token" -d name=Test -d phone=0701234567 -d 'message=Hej, vill boka er' \
+            http://localhost:8080/boka.php | grep -q 'inte är en robot'
           curl -s http://localhost:8080/ | grep -q '"https://tredagens.se/static/img/bg3-16x9.JPG"'
 
       - name: Container logs

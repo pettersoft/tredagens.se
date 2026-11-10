@@ -1,5 +1,6 @@
 # Local development: http://localhost:8090 (xdebug on port 9003).
 #   docker compose up --build
+# Admin: http://localhost:8090/admin/ with the password "admin".
 services:
   web:
     build:
@@ -8,7 +9,15 @@ services:
     container_name: tredagens-dev
     ports:
       - "8090:8080"
+    environment:
+      # password_hash('admin', PASSWORD_DEFAULT). $$ escapes $ for compose.
+      ADMIN_PASSWORD_HASH: "$$2y$$10$$NK90fT4Be2BMzC/Fyi53oOtPKQXfT8fcSoHvBfre1pFPP4WGR.NIa"
+      CONTACT_SECRET: "dev-only-contact-secret-not-for-production"
     volumes:
       - ./src:/var/www/html
+      - stats-data:/var/www/data
     extra_hosts:
       - "host.docker.internal:host-gateway"
+
+volumes:
+  stats-data:
