@@ -39,6 +39,9 @@ jobs:
           [ "$(curl -s -o /dev/null -w '%{http_code}' http://localhost:8080/template/nav.php)" = 403 ]
           [ "$(curl -s -o /dev/null -w '%{http_code}' http://localhost:8080/lib/stats.php)" = 403 ]
           curl -s http://localhost:8080/admin/ | grep -q 'name="password"'
+          # Behind Caddy, /admin must redirect to the public https URL, not to :8080.
+          curl -sI -H 'Host: tredagens.se' -H 'X-Forwarded-Proto: https' http://localhost:8080/admin \
+            | tr -d '\r' | grep -qx 'Location: https://tredagens.se/admin/'
           # A browser visit is recorded in the stats database.
           curl -s -o /dev/null -A 'Mozilla/5.0 (smoke test)' http://localhost:8080/boka.php
           docker exec smoke php -r '$q=(new PDO("sqlite:/var/www/data/stats.db"))->prepare("SELECT COUNT(*) FROM pageviews WHERE path = ?"); $q->execute(["/boka.php"]); exit((int)$q->fetchColumn() === 1 ? 0 : 1);'
